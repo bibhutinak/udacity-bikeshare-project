@@ -23,7 +23,7 @@ def get_filters():
     #city = str(input("Please enter name of city you like to analyze, select from 'Chicago, New York City, Washington: "))
     #city = city.lower()
     while True:
-        city = str(input("Please enter name of city you like to analyze, select from 'Chicago, New York City, Washington: "))
+        city = str(input("Please enter name of city you like the Statistics: select from 'Chicago, New York City, Washington: "))
         #city = city.lower()
         if city.lower() not in CITY_DATA.keys():
             print("You has enter wrong city. Please choose from chicago, new york city or washington, enter again")
@@ -31,8 +31,8 @@ def get_filters():
             city=city.lower()
             break
     print('You choose {}'.format(city.title()))
-         
-       
+
+
     # TO DO: get user input for city (chicago, new york city, washington). HINT: Use a while loop to handle invalid inputs
 
 
@@ -48,7 +48,7 @@ def get_filters():
             month=month.lower()
             break
     print('You choose {}'.format(month.title()))
-        
+
     # TO DO: get user input for day of week (all, monday, tuesday, ... sunday)
     #day = ''
     day_info = {'sunday':1, 'monday':2,'tuesday':3, 'wednesday':4, 'thursday':5, 'friday':6, 'saturday':7, 'all':8}
@@ -60,11 +60,11 @@ def get_filters():
            # day = day.lower()
             break
     print('You choose {}'.format(day))
-  
+
     print('-'*40)
     return city,month,day
     #return CITY_DATA[city],month_info[month],day
-    
+
 
 def load_data(city, month, day):
     """
@@ -134,15 +134,15 @@ def station_stats(df):
 #user_types = df['User Type'].value_counts()
     common_start_station = df['Start Station'].mode()[0]
     print("The most common start station is:",common_start_station)
-                              
+
 
     # TO DO: display most commonly used end station
     common_end_station = df['End Station'].mode()[0]
     print("The most common start station is:",common_end_station)
 
-    # TO DO: display most frequent combination of start station and end station trip    
+    # TO DO: display most frequent combination of start station and end station trip
     #common_start_end_station = df.apply(Counter, axis='Start Station').value_counts()
-    common_start_end_station = df.groupby(['Start Station', 'End Station']).size().idxmax() 
+    common_start_end_station = df.groupby(['Start Station', 'End Station']).size().idxmax()
     #print(count)
     print("The most frequent combination of start station and end station is:",common_start_end_station)
 
@@ -169,7 +169,7 @@ def trip_duration_stats(df):
 
 def user_stats(df):
     """Displays statistics on bikeshare users."""
-        
+
     print('\nCalculating User Stats...\n')
     start_time = time.time()
 
@@ -179,7 +179,7 @@ def user_stats(df):
     print(user_types)
 
     # TO DO: Display counts of gender
-    if 'Gender' in df.columns:       
+    if 'Gender' in df.columns:
         gender_types = df['Gender'].value_counts()
         print("Gender Types:")
         print(gender_types)
@@ -188,14 +188,14 @@ def user_stats(df):
     if 'Birth Year' in df.columns:
         max_birth = df['Birth Year'].min()
         print("Earliest birth year is: %d" % max_birth)
-    
+
         most_recent = df['Birth Year'].max()
         print("Most recent Birth year is: %d" % most_recent)
-    
+
         common_birth = df['Birth Year'].mode()[0]
         print("The most common birth year is: %d" % common_birth)
     print("\nThis took %s seconds." % (time.time() - start_time))
-   
+
     print('-'*40)
     #see raw data
 def display_data(df):
@@ -204,14 +204,14 @@ def display_data(df):
     see_data = input("Do you want to see raw data? Please write Yes or No : ").lower()
     #elif see_data == 'yes':
     while see_data == 'yes':
-        raw_data = df.iloc[start_index:next_index] 
+        raw_data = df.iloc[start_index:next_index]
         print(raw_data)
         start_index = next_index
         next_index = next_index+5
         see_data = input("Do you want to see more 5 lines of raw data? Please write yes or no: ").lower()
-                      
+
     print('-'*40)
-            
+
 
 def main():
     while True:
@@ -219,12 +219,12 @@ def main():
         #print(city,month,day)
         df = load_data(city, month, day)
         #print(city,month,day)
-       
+
         time_stats(df)
         station_stats(df)
-       
+
         trip_duration_stats(df)
-        
+
         user_stats(df)
         display_data(df)
         restart = input('\nWould you like to restart? Enter yes or no.\n')
