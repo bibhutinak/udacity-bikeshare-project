@@ -13,4 +13,4 @@ washington.CSV
 new_york_city.csv
 
 ### Credits
-Throughout this project I used various resources : stackexchange, the python documentation and udacity course material.   
+Throughout this project I used various resources : stackexchange, the python documentation and udacity course material. Links :https://pythonprogramming.net/data-analysis-tutorials/  
