@@ -5,7 +5,7 @@ July 3, 2019
 Udacity bikeshare project
 
 ### Description
-Using python to analyze bikeshare data from three different cities.
+In this project I used python to analyze bikeshare data from three different cities: Chicago, Washington and New York City. 
 ### Files used
 CSV file from three different cities.
 chicago.CSV
