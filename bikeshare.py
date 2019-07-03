@@ -40,7 +40,7 @@ def get_filters():
     #month = ''
     month_info = {'janaury':1, 'februay': 2, 'march': 3, 'april': 4, 'may': 5, 'june': 6, 'all': 7}
     while True:
-        month = str(input("Which month? Janaury, February,March,April,May,June or All? "))
+        month = str(input("Choose month? Janaury, February,March,April,May,June or All?Please type full name of month "))
         #month = month.capitalize()
         if month.lower() not in month_info.keys():
             print("Sorry, Please type month between Janauary to June")
